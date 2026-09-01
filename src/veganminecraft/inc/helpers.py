@@ -33,11 +33,11 @@ DIR_HOME = expanduser("~")
 DISCORD_CHARACTER_LIMITS = [2000, 4000]
 DISCORD_CHARACTER_LIMIT = 2000
 DISCORD_COGS = [
-    "veganminecraft.listeners.generic_event_listeners",
+    "veganminecraft.app_commands.minecraft_commands",
     "veganminecraft.listeners.scheduled_tasks",
 ]
 DISCORD_COGS_CLASSES = [
-    "GenericEventListeners",
+    "MinecraftCommands",
     "ScheduledTasks",
 ]
 #### PATHS

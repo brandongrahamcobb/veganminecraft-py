@@ -42,7 +42,7 @@ class DiscordBot(commands.Bot):
             intents.presences = False
             intents.members = False
         super().__init__(
-            command_prefix=None,
+            command_prefix="!",
             help_command=None,
             intents=intents,
             **kwargs,
@@ -53,6 +53,7 @@ class DiscordBot(commands.Bot):
     async def setup_hook(self) -> None:
         for ext in self.__initial_extensions:
             await self.load_extension(ext)
+
 
     @classmethod
     def get_instance(cls) -> Self:

@@ -23,10 +23,6 @@ from mcrcon import MCRcon
 
 from veganminecraft.bot.discord_bot import DiscordBot
 
-RCON_HOST = "veganminecraft"
-RCON_PORT = 25575
-RCON_PASSWORD = "veganminecraft"
-
 async def handle_mc_connection(websocket):
     bot: DiscordBot = DiscordBot.get_instance()
     async for raw in websocket:
@@ -36,7 +32,7 @@ async def handle_mc_connection(websocket):
             message = data["message"]
         except (json.JSONDecodeError, KeyError):
             continue
-        channel = bot.get_channel(bot.config["MINECRAFT_CHANNEL_SNOWFLAKE"])
+        channel = bot.get_channel(bot.config["minecraft_channel_snowflake"])
         if channel:
             await channel.send(f"**{player}**: {message}")
 
@@ -45,6 +41,10 @@ async def start_ws_server():
         await asyncio.Future()
 
 def send_to_minecraft(username, content):
+    bot: DiscordBot = DiscordBot.get_instance()
+    RCON_HOST = bot.config["rcon_host"]
+    RCON_PORT = 25575
+    RCON_PASSWORD = bot.config["rcon_password"]
     try:
         with MCRcon(RCON_HOST, RCON_PASSWORD, port=RCON_PORT) as mcr:
             safe_content = content.replace('"', '\\"')

@@ -37,7 +37,9 @@ class Config:
             "redirect_uri": os.environ["REDIRECT_URI"],
             "discord_owner_snowflake": int(os.environ["DISCORD_OWNER_SNOWFLAKE"]),
             "logging_level": os.environ["LOGGING_LEVEL"],
-            "minecraft_channel_snowflake": int(os.environ["MINECRAFT_CHANNEL_SNOWFLAKE"])
+            "minecraft_channel_snowflake": int(os.environ["MINECRAFT_CHANNEL_SNOWFLAKE"]),
+            "rcon_host": os.environ["RCON_HOST"],
+            "rcon_password": os.environ["RCON_PASSWORD"],
         }
         _config["release_mode"] = str(os.environ.get("RELEASE_MODE")).lower() in (
             "1",
