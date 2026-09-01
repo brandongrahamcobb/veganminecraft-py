@@ -11,3 +11,5 @@ services:
       test: "healthcheck.sh || kill 1"
       interval: 10s
       retries: 3
+    ports:
+      - "8765:8765"

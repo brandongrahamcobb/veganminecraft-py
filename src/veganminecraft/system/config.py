@@ -35,8 +35,9 @@ class Config:
             "client_id": os.environ["CLIENT_ID"],
             "client_secret": os.environ["CLIENT_SECRET"],
             "redirect_uri": os.environ["REDIRECT_URI"],
-            "discord_owner_id": int(os.environ["DISCORD_OWNER_ID"]),
+            "discord_owner_snowflake": int(os.environ["DISCORD_OWNER_SNOWFLAKE"]),
             "logging_level": os.environ["LOGGING_LEVEL"],
+            "minecraft_channel_snowflake": int(os.environ["MINECRAFT_CHANNEL_SNOWFLAKE"])
         }
         _config["release_mode"] = str(os.environ.get("RELEASE_MODE")).lower() in (
             "1",

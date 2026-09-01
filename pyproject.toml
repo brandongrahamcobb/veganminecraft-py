@@ -21,6 +21,9 @@ aiohttp = "*"
 python-dotenv = "*"
 docker = "*"
 discord-py = {git = "https://github.com/Rapptz/discord.py.git"}
+websockets = "^17.1"
+mcrcon = "^0.7.0"
+pyjson = "^1.4.1"
 
 [tool.poetry.scripts]
 vyrtuous = "veganminecraft.main:run"

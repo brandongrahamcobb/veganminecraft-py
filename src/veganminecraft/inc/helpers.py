@@ -32,7 +32,13 @@ DIR_HOME = expanduser("~")
 #### DISCORD
 DISCORD_CHARACTER_LIMITS = [2000, 4000]
 DISCORD_CHARACTER_LIMIT = 2000
-DISCORD_COGS = []
-DISCORD_COGS_CLASSES = []
+DISCORD_COGS = [
+    "veganminecraft.listeners.generic_event_listeners",
+    "veganminecraft.listeners.scheduled_tasks",
+]
+DISCORD_COGS_CLASSES = [
+    "GenericEventListeners",
+    "ScheduledTasks",
+]
 #### PATHS
 PATH_LOG = join(DIR_BASE, ".log", "discord.log")
