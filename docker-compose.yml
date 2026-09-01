@@ -1,0 +1,13 @@
+services:
+
+  veganminecraft:
+    build: .
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - ./src:/app:Z
+    healthcheck:
+      test: "healthcheck.sh || kill 1"
+      interval: 10s
+      retries: 3

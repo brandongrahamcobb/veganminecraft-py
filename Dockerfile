@@ -1,0 +1,18 @@
+FROM python:3.12-alpine
+
+RUN apk add --no-cache python3-dev
+
+ENV POETRY_VIRTUALENVS_CREATE=false
+
+WORKDIR /app
+RUN mkdir -p /app/backups
+
+RUN pip install --upgrade pip
+RUN pip install --no-cache-dir poetry
+
+COPY pyproject.toml poetry.lock* README.md ./
+COPY healthcheck.sh ./
+
+RUN poetry install --no-root
+
+CMD ["python", "-m", "veganminecraft.main"]
